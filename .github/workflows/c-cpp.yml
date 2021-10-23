@@ -13,11 +13,22 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: configure
-      run: ./configure
+    - name: autogen
+      run: ./autogen.sh
+    - name: configure  
+      run: ./configure.sh --program-prefix=PREFIX
+      
     - name: make
       run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    - name: sudo make install
+      run: sudo make install
+    - name: make training
+      run: make training
+    - name: sudo make training-install
+      run: sudo make training-install
+    - name: mkdir build
+      run: mkdir build
+    - name: cd build && cmake .. && make
+      run: cd build && cmake .. && make
+    - name: sudo make install
+      run: sudo make install
