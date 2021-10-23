@@ -16,7 +16,7 @@ jobs:
     - name: autogen
       run: ./autogen.sh
     - name: configure  
-      run: ./configure.sh --program-prefix=PREFIX
+      run: ./configure --program-prefix=PREFIX
       
     - name: make
       run: make
